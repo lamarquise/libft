@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/11 19:09:24 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/11 20:08:45 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,10 @@ int		ft_isdigit(int c);
 int		ft_isalnum(int c);
 int		ft_isascii(int c);
 int		ft_isprint(int c);
+int		ft_toupper(int c);
+int		ft_tolower(int c);
+void	*ft_memalloc(size_t size);
+
+
 
 #endif
