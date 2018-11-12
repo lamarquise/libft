@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 18:08:54 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 20:10:58 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/12 20:56:49 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/12 21:06:43 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_putnbr(int n)
 {
-	int		a;
-	int		ret;
-	int		neg;
-
-	a = 0;
-	ret = 0;
-	neg = 1;
-	while ((str[a] >= 9 && str[a] <= 13) || str[a] == 32)
-		++a;
-	if (str[a] == 43 || str[a] == 45)
+	long			nb;
+	unsigned char	*ret;
+	
+	nb = n;
+	if (nb < 0)
 	{
-		if (str[a] == 45)
-			neg = -1;
-		++a;
+		write(1, "-", 1);
+		nb = -nb;
 	}
-	while (str[a] >= 48 && str[a] <= 57)
-	{
-		ret = ret * 10 + (str[a] - 48);
-		++a;
-	}
-	return (ret * neg);
+	if (nb >= 10)
+		ft_putnbr(nb / 10);
+	ret = (unsigned char*)(nb % 10 + 48);
+	write(1, &ret, 1);
 }

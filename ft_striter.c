@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 18:08:54 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 20:10:58 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/12 16:06:11 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/12 16:21:17 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+void	ft_striter(char *s, void (*f)(char *))
 {
 	int		a;
-	int		ret;
-	int		neg;
 
 	a = 0;
-	ret = 0;
-	neg = 1;
-	while ((str[a] >= 9 && str[a] <= 13) || str[a] == 32)
-		++a;
-	if (str[a] == 43 || str[a] == 45)
+	while (s[a])
 	{
-		if (str[a] == 45)
-			neg = -1;
-		++a;
+		f(&s[a]);				// i mean that could fix it but seems weird... although kinda makes sense...
+		++a;			//this isn't going to work, i feel like this function is pourly explained/designed, whatevs
 	}
-	while (str[a] >= 48 && str[a] <= 57)
-	{
-		ret = ret * 10 + (str[a] - 48);
-		++a;
-	}
-	return (ret * neg);
 }

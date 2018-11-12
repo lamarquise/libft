@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 18:08:54 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 20:10:58 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/12 17:04:32 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/12 17:13:24 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+char 	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	int		a;
-	int		ret;
-	int		neg;
+	unsigned int	a;
+	char			*ret;
 
 	a = 0;
-	ret = 0;
-	neg = 1;
-	while ((str[a] >= 9 && str[a] <= 13) || str[a] == 32)
-		++a;
-	if (str[a] == 43 || str[a] == 45)
+	if (!(ret = (char*)malloc(sizeof(char) * (len + 1))))			// len + 1 ???
+		return (0);
+	while (a < len)
 	{
-		if (str[a] == 45)
-			neg = -1;
+		ret[a] = (char)s[start + a];
 		++a;
 	}
-	while (str[a] >= 48 && str[a] <= 57)
-	{
-		ret = ret * 10 + (str[a] - 48);
-		++a;
-	}
-	return (ret * neg);
+	ret[a] = '\0';
+	return (ret);
 }

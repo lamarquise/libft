@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strequ.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 18:08:54 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 20:10:58 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/12 16:29:08 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/12 16:55:01 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_strequ(char const *s1, char const *s2)
 {
-	int		a;
-	int		ret;
-	int		neg;
-
-	a = 0;
-	ret = 0;
-	neg = 1;
-	while ((str[a] >= 9 && str[a] <= 13) || str[a] == 32)
-		++a;
-	if (str[a] == 43 || str[a] == 45)
+	while (*s1 && *s2 && *s1 == *s2)
 	{
-		if (str[a] == 45)
-			neg = -1;
-		++a;
+		++s1;
+		++s2;
 	}
-	while (str[a] >= 48 && str[a] <= 57)
-	{
-		ret = ret * 10 + (str[a] - 48);
-		++a;
-	}
-	return (ret * neg);
+	if (!*s1 && !*s2)
+		return (1);
+	return (0);
 }
