@@ -1,30 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:03:45 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/20 17:26:04 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/19 19:25:11 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/19 19:27:44 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+int		ft_isspace(char c)
 {
-	unsigned int	a;
-	unsigned char	*str;
-	unsigned char	*tmp;
-
-	a = 0;
-	str = (unsigned char*)src;
-	tmp = (unsigned char*)dst;
-	while (a < n)
-	{
-		tmp[a] = str[a];
-		++a;
-	}
-	return (dst);
+	if ((c >= 9 && c <= 13) || c == 32)
+		return (1);
+	return (0);
 }

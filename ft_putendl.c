@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 20:46:12 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 20:56:33 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/20 18:32:20 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ void	ft_putendl(char const *s)
 	int		a;
 
 	a = 0;
+	if (!s)
+		return ;
 	while ((char)s[a])
 	{
 		write(1, (void*)&s[a], 1);

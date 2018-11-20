@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:48:40 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 15:52:23 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/20 21:56:12 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_strdel(char **as)
 {
-	free(*as);					//same Q's as the last 3 funcs
+	if (!as)
+		return ;
+	free(*as);
 	*as = NULL;
 }

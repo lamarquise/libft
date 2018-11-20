@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 17:54:13 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/09 18:06:11 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/20 18:12:54 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,8 @@
 char	*ft_strcpy(char *dst, const char *src)
 {
 	int		a;
-	
+
 	a = 0;
-	if (!src)
-		return (0);
 	while (src[a])
 	{
 		dst[a] = src[a];

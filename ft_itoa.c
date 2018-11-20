@@ -6,13 +6,13 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 20:29:27 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 20:43:06 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/18 19:34:47 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long	is_pos(int n)
+static long		is_pos(int n)
 {
 	long	nb;
 
@@ -22,7 +22,7 @@ long	is_pos(int n)
 	return (nb);
 }
 
-char	*ft_itoa(int n)
+char			*ft_itoa(int n)
 {
 	char	*ret;
 	long	nb;
@@ -32,7 +32,7 @@ char	*ft_itoa(int n)
 	len = 1;
 	if (n < 0)
 		++len;
-	while (nb > 10)
+	while (nb >= 10)
 	{
 		nb /= 10;
 		++len;

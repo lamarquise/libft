@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 17:47:38 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/20 17:58:41 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/14 18:14:24 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/19 15:49:52 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strdup(const char *s1)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	int		a;
-	char	*ret;
+	t_list	*elem;
 
-	a = 0;
-	while (s1[a])
-		++a;
-	if (!(ret = (char *)malloc(sizeof(char) * (a + 1))))
+	if (!(elem = (t_list*)malloc(sizeof(t_list))))
 		return (0);
-	a = 0;
-	while (s1[a])
+	if (!content)
 	{
-		ret[a] = s1[a];
-		++a;
+		elem->content = NULL;
+		elem->content_size = 0;
 	}
-	ret[a] = '\0';
-	return (ret);
+	else
+	{
+		if (!(elem->content = (void*)malloc(sizeof(void) * content_size)))
+		{
+			free(elem);
+			return (0);
+		}
+		elem->content = ft_memcpy(elem->content, content, content_size);
+		elem->content_size = content_size;
+	}
+	elem->next = NULL;
+	return (elem);
 }

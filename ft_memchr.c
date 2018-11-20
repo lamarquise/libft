@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 16:38:00 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/09 16:49:29 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/14 15:38:20 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	unsigned char	*tmp;
 
 	a = 0;
-	tmp = s;
+	tmp = (unsigned char*)s;
 	while (a < n)
 	{
 		if ((unsigned char)c == tmp[a])

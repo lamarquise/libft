@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 17:43:16 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/11 17:52:56 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/11 16:55:48 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/20 21:26:52 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,24 @@
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-	unsigned int	a;
-	unsigned int	b;
+	int		a;
+	int		b;
 
 	a = 0;
-	b = 0;
-	if (!needle)
+	if (needle[a] == '\0')
 		return ((char*)haystack);
-	else if (!haystack)
-		return (0);
-	while ((char)haystack[a] && a < len)
+	while (haystack[a] && len)
 	{
-		if ((char)haystack[a] == (char)needle[b] && (char)needle[b])
-			++b;
-		else if ((char)haystack[a] != (char)needle[b] && (char)needle[b])
+		b = 0;
+		while (haystack[a + b] == needle[b] && len)
 		{
-			a = a - b;
-			b = 0;
+			++b;
+			if (needle[b] == '\0')
+				return ((char*)&haystack[a]);
+			--len;
 		}
-		else
-			return ((char*)&haystack[a - b]);
+		len = len + b - 1;
 		++a;
 	}
-	return (0);
+	return (NULL);
 }

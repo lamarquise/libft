@@ -6,11 +6,9 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/10 21:45:28 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/10 22:14:50 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/14 18:06:03 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 #include "libft.h"
 
@@ -21,11 +19,10 @@ char	*ft_strncat(char *s1, const char *s2, size_t n)
 
 	a = 0;
 	b = 0;
-	while (s2[a])
+	while (s1[a])
 		++a;
 	while (b < n && s2[b])
 	{
-		printf("test\n");
 		s1[a + b] = s2[b];
 		++b;
 	}

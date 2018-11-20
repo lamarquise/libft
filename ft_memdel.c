@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:22:55 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 15:48:28 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/14 17:45:56 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_memdel(void **ap)
 {
-	free(*ap);			//securiser???
+	if (ap == NULL)
+		return ;
+	free(*ap);
 	*ap = NULL;
 }

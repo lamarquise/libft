@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:37:05 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 15:43:59 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/20 21:23:57 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ char	*ft_strnew(size_t size)
 	char	*ret;
 
 	a = 0;
-	if (!(ret = (char*)malloc(sizeof(char) * size)))
+	if (!(ret = (char*)malloc(sizeof(char) * (size + 1))))
 		return (0);
-	while (a < size)
+	while (a <= size)
 	{
 		ret[a] = '\0';
 		++a;

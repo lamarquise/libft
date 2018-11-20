@@ -5,54 +5,45 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/12 17:28:27 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/12 18:19:30 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/20 20:12:36 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/20 21:53:38 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		len(char *str)
+static int	ft_strlen_trim(char *s)
 {
-	int		a;
-	int		c;
+	int		len;
+	char	*s_bis;
 
-	a = 0;
-	c = 0;
-	while (str[a] && (str[a] == ' ' || str[a] == '\n' || str[a] == '\t'))
-		++a;
-	while (str[a])
-	{
-		++c;
-		++a;
-	}
-	--a;
-	--c;
-	while (str[a] && (str[a] == ' ' || str[a] == '\n' || str[a] == '\t'))
-	{
-		--a;
-		--c;
-	}
-	return (c);
+	if (!s)
+		return (1);
+	len = ft_strlen(s);
+	s_bis = s + len - 1;
+	while (*s && (*s == ' ' || *s == '\t' || *s == '\n'))
+		s++;
+	while (len-- != 0 && (*s_bis == ' ' || *s_bis == '\t' || *s_bis == '\n')
+	&& s_bis > s)
+		s_bis--;
+	return (s_bis - s + 1);
 }
 
-char	*ft_strtrim(char const *s)
+char		*ft_strtrim(char const *s)
 {
-	int		a;
-	int		c;
 	char	*ret;
+	int		len;
+	int		idx;
 
-	a = 0;
-	c = 0;
-	if (!(ret = (char*)malloc(sizeof(char) * (len((char*)s) + 1))))
+	len = ft_strlen_trim((char*)s);
+	idx = 0;
+	if (!s)
 		return (0);
-	while (s[a] && (s[a] == ' ' || s[a] == '\n' || s[a] == '\t'))
-		++a;
-	while (s[a] && c < (len((char*)s) + 1))
-	{
-		ret[c] = s[a];
-		++a;
-		++c;
-	}
+	if (!(ret = (char*)ft_memalloc(sizeof(char) * (len + 1))))
+		return (0);
+	while (*s && (*s == ' ' || *s == '\t' || *s == '\n'))
+		s++;
+	while (idx < len)
+		ret[idx++] = *s++;
 	return (ret);
 }

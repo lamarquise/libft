@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/11 16:50:17 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/11 16:55:39 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/11/19 18:06:27 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 char	*ft_strrchr(const char *s, int c)
 {
 	int		a;
-	char 	*tmp;
+	char	*tmp;
 
 	a = 0;
-	tmp = (char *)s;
+	tmp = (char*)s;
 	while (tmp[a])
 		++a;
-	while (a > 0)
+	while (a >= 0)
 	{
 		if (tmp[a] == (char)c)
 			return (&tmp[a]);

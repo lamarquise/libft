@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/09 16:03:45 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/20 17:26:04 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/12 20:56:49 by erlazo            #+#    #+#             */
+/*   Updated: 2018/11/19 17:42:09 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+void	ft_putnbr_fd(int n, int fd)
 {
-	unsigned int	a;
-	unsigned char	*str;
-	unsigned char	*tmp;
+	long			nb;
 
-	a = 0;
-	str = (unsigned char*)src;
-	tmp = (unsigned char*)dst;
-	while (a < n)
+	nb = n;
+	if (nb < 0)
 	{
-		tmp[a] = str[a];
-		++a;
+		write(fd, "-", 1);
+		nb = -nb;
 	}
-	return (dst);
+	if (nb >= 10)
+		ft_putnbr_fd(nb / 10, fd);
+	ft_putchar_fd(nb % 10 + 48, fd);
 }
