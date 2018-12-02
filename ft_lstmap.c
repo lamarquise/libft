@@ -21,7 +21,8 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		return (0);
 	if (lst)
 	{
-		new = f(lst);
+		if (!(new = f(lst)))
+			return (NULL);
 		new->next = ft_lstmap(lst->next, f);
 	}
 	return (new);

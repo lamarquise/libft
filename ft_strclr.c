@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-void	ft_strclr(char *s)
+void	ft_strclr(char *s)			// yea it does look stupid, but not sure how to fix or change...
 {
 	int		a;
 

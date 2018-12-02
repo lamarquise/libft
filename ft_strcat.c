@@ -15,17 +15,15 @@
 char	*ft_strcat(char *s1, const char *s2)
 {
 	int		a;
-	int		b;
 
 	a = 0;
-	b = 0;
 	while (s1[a])
 		++a;
-	while (s2[b])
+	while (*s2)
 	{
-		s1[a + b] = s2[b];
-		++b;
+		s1[a++] = *s2;
+		++s2;
 	}
-	s1[a + b] = '\0';
+	s1[a] = '\0';
 	return (s1);
 }
