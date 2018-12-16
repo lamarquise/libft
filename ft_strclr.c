@@ -6,13 +6,13 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 15:52:32 by erlazo            #+#    #+#             */
-/*   Updated: 2018/11/14 16:18:54 by erlazo           ###   ########.fr       */
+/*   Updated: 2018/12/16 18:49:58 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_strclr(char *s)			// yea it does look stupid, but not sure how to fix or change...
+void	ft_strclr(char *s)
 {
 	int		a;
 
