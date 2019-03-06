@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 17:13:52 by erlazo            #+#    #+#             */
-/*   Updated: 2018/12/16 19:53:54 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/03/06 17:09:59 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 	if (!(ret = (char*)ft_memalloc(sizeof(char)
 		* l((char*)s1) + l((char*)s2) + 1)))
 		return (0);
-	if (!(ret = ft_strcpy(ret, s1)))
+	if (!(ret = ft_strdup(s1)))
 		return (NULL);
 	if (!(ret = ft_strcat(ret, s2)))
 		return (NULL);
