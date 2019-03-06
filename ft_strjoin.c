@@ -19,7 +19,7 @@ static int		l(char *str)
 	a = 0;
 	while (str[a])
 		++a;
-	return ((a - 1) < 0 ? 0 : a - 1);
+	return ((a == 0) ? 0 : a);
 }
 
 char			*ft_strjoin(char const *s1, char const *s2)
