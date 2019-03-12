@@ -12,19 +12,6 @@
 
 #include "libft.h"
 
-<<<<<<< HEAD
-=======
-static int		l(char *str)
-{
-	int		a;
-
-	a = 0;
-	while (str[a])
-		++a;
-	return ((a == 0) ? 0 : a);
-}
-
->>>>>>> a9df64398a6834baf0585b33e38d32e24a97d43d
 char			*ft_strjoin(char const *s1, char const *s2)
 {
 	int		a;
