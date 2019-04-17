@@ -30,14 +30,14 @@ static int		ws(char *str, char c)
 	return (words + 1);
 }
 
-static int		word(char *str, int start, char c)
+static int		word(char *str, char c)
 {
 	int		a;
 
 	a = 0;
 	if (!str)
 		return (0);										// what to do when it returns 0 ?
-	while (str[start + a] && str[start + a] != c)
+	while (str[a] && str[a] != c)
 		++a;
 	return (a);
 }
@@ -60,7 +60,7 @@ char			**ft_strsplit(char const *s, char c)
 		else
 		{
 			d = 0;
-			if (!(ret[b] = (char*)malloc(sizeof(char) * word((char*)s, a, c))))			// makes problems down here
+			if (!(ret[b] = (char*)malloc(sizeof(char) * word((char*)&s[a], c))))			// makes problems down here
 				return (0);
 			while ((char)s[a] != c && (char)s[a])
 				ret[b][d++] = s[a++];
