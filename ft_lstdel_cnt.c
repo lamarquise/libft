@@ -1,29 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstdel_cnt.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tlamart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 20:00:47 by erlazo            #+#    #+#             */
-/*   Updated: 2019/05/29 19:18:04 by erlazo           ###   ########.fr       */
+/*   Created: 2018/11/26 16:52:08 by tlamart           #+#    #+#             */
+/*   Updated: 2019/04/12 13:19:43 by tlamart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+void	ft_lstdel_cnt(void *content, size_t content_size)
 {
-	unsigned int	a;
-	char			*ret;
-
-	a = 0;
-	if (!(ret = (char*)malloc(sizeof(void) * size)))
-		return (0);
-	while (a < size)
-	{
-		ret[a] = '\0';
-		++a;
-	}
-	return ((void*)ret);
+	ft_bzero(content, content_size);
+	ft_memdel(&content);
 }

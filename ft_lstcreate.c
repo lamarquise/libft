@@ -1,29 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstcreate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tlamart <tlamart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 20:00:47 by erlazo            #+#    #+#             */
-/*   Updated: 2019/05/29 19:18:04 by erlazo           ###   ########.fr       */
+/*   Created: 2019/04/22 09:13:00 by tlamart           #+#    #+#             */
+/*   Updated: 2019/04/22 12:57:46 by tlamart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+t_list	*ft_lstcreate(void *content, size_t content_size)
 {
-	unsigned int	a;
-	char			*ret;
+	t_list	*new;
 
-	a = 0;
-	if (!(ret = (char*)malloc(sizeof(void) * size)))
-		return (0);
-	while (a < size)
-	{
-		ret[a] = '\0';
-		++a;
-	}
-	return ((void*)ret);
+	if (!(new = ft_memalloc(sizeof(*new))))
+		return (NULL);
+	new->content = content;
+	new->content_size = content_size;
+	new->next = NULL;
+	return (new);
 }

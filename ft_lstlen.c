@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tlamart <tlamart@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 20:00:47 by erlazo            #+#    #+#             */
-/*   Updated: 2019/05/29 19:18:04 by erlazo           ###   ########.fr       */
+/*   Created: 2019/01/07 09:34:42 by tlamart           #+#    #+#             */
+/*   Updated: 2019/01/07 09:37:30 by tlamart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int		ft_lstlen(t_list *list)
 {
-	unsigned int	a;
-	char			*ret;
+	int		len;
 
-	a = 0;
-	if (!(ret = (char*)malloc(sizeof(void) * size)))
-		return (0);
-	while (a < size)
+	len = 0;
+	while (list)
 	{
-		ret[a] = '\0';
-		++a;
+		len++;
+		list = list->next;
 	}
-	return ((void*)ret);
+	return (len);
 }

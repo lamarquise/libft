@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2018/12/16 18:57:05 by erlazo           ###   ########.fr        #
+#    Updated: 2019/05/29 18:55:35 by erlazo           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -81,6 +81,15 @@ SRCS	=	ft_memset.c \
 			ft_print_elem.c \
 			ft_strswap.c \
 			ft_findchar.c \
+			gnl.c \
+			ft_putnbrnl.c \
+			ft_lstappend.c \
+			ft_lstcreate.c \
+			ft_lstcut_next.c \
+			ft_lstlen.c \
+			ft_lstdel_cnt.c \
+			ft_lstset.c \
+			ft_lstnl.c \
 
 OBJS	=	$(SRCS:.c=.o)
 

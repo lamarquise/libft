@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_lstnl.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: tlamart <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/11/11 20:00:47 by erlazo            #+#    #+#             */
-/*   Updated: 2019/05/29 19:18:04 by erlazo           ###   ########.fr       */
+/*   Created: 2019/03/27 08:36:25 by tlamart           #+#    #+#             */
+/*   Updated: 2019/03/27 08:57:57 by tlamart          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+int		ft_lstnl(t_list **list, void const *content, size_t content_size)
 {
-	unsigned int	a;
-	char			*ret;
+	t_list	*new;
 
-	a = 0;
-	if (!(ret = (char*)malloc(sizeof(void) * size)))
+	if (!(new = ft_lstnew(content, content_size)))
 		return (0);
-	while (a < size)
-	{
-		ret[a] = '\0';
-		++a;
-	}
-	return ((void*)ret);
+	ft_lstappend(list, new);
+	return (1);
 }

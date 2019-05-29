@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
-/*   Updated: 2019/05/29 19:18:23 by erlazo           ###   ########.fr       */
+/*   Updated: 2019/05/29 19:08:56 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,21 +17,12 @@
 # include <stdlib.h>
 # include <string.h>
 
-# define DELIM '\n'
-
 typedef struct	s_list
 {
 	void			*content;
 	size_t			content_size;
 	struct s_list	*next;
 }				t_list;
-
-typedef struct	s_glst
-{
-	char			*s;
-	int				fd;
-	struct s_glst	*next;
-}				t_glst;
 
 void			*ft_memset(void *b, int c, size_t len);
 void			ft_bzero(void *s, size_t n);
@@ -99,18 +90,5 @@ int				ft_isspace(char c);
 void			ft_strswap(char **s1, char **s2);
 void			ft_lstrev(t_list **lst);
 int				ft_findchar(char *str, char c);
-int				gnl(char **l, char **s, int b_size, int fd);
-
-// Tibo's lib
-
-void			ft_putnbrnl(int nb);
-int				ft_lstnl(t_list **list, const void *content,\
-				size_t content_size);
-t_list			*ft_lstcreate(void *content, size_t content_size);
-int				ft_lstlen(t_list *list);
-void			ft_lstdel_cnt(void *content, size_t content_size);
-void			ft_lstappend(t_list **lst, t_list *new);
-void			ft_lstcut_next(t_list **lst);
-t_list			*ft_lstset(void *content, size_t content_size, size_t len);
 
 #endif
