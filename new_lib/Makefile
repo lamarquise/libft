@@ -125,7 +125,7 @@ all:		$(NAME)
 $(ODIR)%.o: %.c
 	mkdir -p $(ODIR)
 	$(CC) -o $@ -c $< $(CFLAGS)
-	printf "$(_CYAN)\r\33[2K\rCompling $@\n$(_END)"
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
 
 #%.o:		%.c
 #	mkdir -p $(ODIR)
