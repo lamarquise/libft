@@ -125,7 +125,7 @@ all:		$(NAME)
 $(ODIR)%.o: %.c
 	mkdir -p $(ODIR)
 	$(CC) -o $@ -c $< $(CFLAGS)
-	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+	printf "$(_CYAN)\r\33[2K\rCompling $@$\n(_END)"
 
 #%.o:		%.c
 #	mkdir -p $(ODIR)
@@ -134,7 +134,7 @@ $(ODIR)%.o: %.c
 $(NAME):	$(OBJS)
 	ar rc $(NAME) $^
 	ranlib $(NAME)
-	echo "$(_GREEN)\r\33[2K\r$(NAME) created  😎$(_END)"
+	printf "$(_GREEN)\r\33[2K\r$(NAME) created  😎\n$(_END)"
 
 clean:
 	rm -rf $(ODIR)
@@ -151,7 +151,7 @@ bonus:		$(OBJS) $(OBJS_BONUS)
 	ar rc $(NAME) $^
 	ranlib $(NAME)
 	touch bonus
-	echo "$(_GREEN)\r\33[2K\rBonus $(NAME) created  😎$(_END)"
+	printf "$(_GREEN)\r\33[2K\rBonus $(NAME) created  😎\n$(_END)"
 	
 
 .PHONY: all clean fclean re
