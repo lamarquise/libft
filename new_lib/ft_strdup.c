@@ -17,10 +17,12 @@ char	*ft_strdup(const char *s1)
 	int		a;
 	char	*ret;
 
+	if (!s1)
+		return (NULL);
 	a = 0;
 	while (s1[a])
 		++a;
-	if (!(ret = (char *)malloc(sizeof(char) * (a + 1))))
+	if (!(ret = ft_memalloc(sizeof(char) * (a + 1))))
 		return (NULL);
 	a = 0;
 	while (s1[a])
@@ -28,6 +30,5 @@ char	*ft_strdup(const char *s1)
 		ret[a] = s1[a];
 		++a;
 	}
-	ret[a] = '\0';
 	return (ret);
 }

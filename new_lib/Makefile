@@ -92,28 +92,58 @@ SRCS_BONUS	=	ft_lstnew.c \
 				ft_putnbr.c \
 				ft_putnbrnl.c \
 				ft_isspace.c \
+				gnl.c \
+				ft_scott_free.c \
+				ft_pos_itoa.c \
+				ft_free_strjoin.c \
+				ft_fill_with.c \
+				ft_len_atoi.c \
+				ft_nlstnew.c \
+				ft_nlstadd_back.c \
+				ft_nlstdel_all.c \
+				ft_nlstadd_front.c \
+				ft_nlstdel_n_one.c \
+				ft_read_nlst_n.c \
+				ft_free_strtab.c \
+				ft_print_strtab.c \
 
-OBJS		=	$(SRCS:.c=.o)
 
-OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
+ODIR = obj/
+OBJ_NAME = $(SRCS:.c=.o)
+OBJ_NAME_BONUS = $(SRCS_BONUS:.c=.o)
+OBJS = $(addprefix $(ODIR),$(OBJ_NAME))
+OBJS_BONUS = $(addprefix $(ODIR),$(OBJ_NAME_BONUS))
 
-INCL		=	libft.h
+#OBJS		=	$(SRCS:.c=.o)
+
+#OBJS_BONUS	=	$(SRCS_BONUS:.c=.o)
+
+#INCL		=	libft.h
 
 all:		$(NAME)
 
-%.o:		%.c
-	$(CC) -o $@ -c $< $(CFLAGS) -I $(INCL)
+$(ODIR)%.o: %.c
+	mkdir -p $(ODIR)
+	$(CC) -o $@ -c $< $(CFLAGS)
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+#%.o:		%.c
+#	mkdir -p $(ODIR)
+#	$(CC) -o $@ -c $< $(CFLAGS)
 
 $(NAME):	$(OBJS)
 	ar rc $(NAME) $^
 	ranlib $(NAME)
+	echo "$(_GREEN)\r\33[2K\r$(NAME) created  😎$(_END)"
 
 clean:
-	rm -rf $(OBJS) $(OBJS_BONUS)
+	rm -rf $(ODIR)
+	echo "$(_RED).o Files Deleted  😱$(_END)"
 
 fclean:		clean
 	rm -rf $(NAME)
 	rm -f bonus
+	echo "$(_RED)Library Deleted  😱$(_END)"
 
 re:			fclean all
 
@@ -121,5 +151,23 @@ bonus:		$(OBJS) $(OBJS_BONUS)
 	ar rc $(NAME) $^
 	ranlib $(NAME)
 	touch bonus
+	echo "$(_GREEN)\r\33[2K\rBonus $(NAME) created  😎$(_END)"
+	
 
 .PHONY: all clean fclean re
+
+.SILENT:
+
+##################
+##    COLORS    ##
+##################
+
+_GREY=$ \033[30m
+_RED=$ \033[31m
+_GREEN=$ \033[32m
+_YELLOW=$ \033[33m
+_BLUE=$ \033[34m
+_PURPLE=$ \033[35m
+_CYAN=$ \033[36m
+_WHITE=$ \033[37m
+_END=$ \033[0m

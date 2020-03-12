@@ -20,7 +20,7 @@ t_list		*ft_lstgen(char *s, char c)
 
 	i = 0;
 	list = NULL;
-	if (!(tab = ft_split(s, c)))
+	if (!(tab = ft_split(s, ft_fill_with(c, 1))))
 		return (NULL);
 	while (tab[i])
 	{

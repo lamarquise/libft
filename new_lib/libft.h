@@ -13,9 +13,18 @@
 #ifndef LIBFT_H
 # define LIBFT_H
 
+# include <stdio.h>	// REMOVE !!!!!!
+
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+
+typedef struct	s_nlist
+{
+	size_t			index;
+	void			*content;
+	struct s_nlist	*next;
+}				t_nlist;
 
 typedef struct	s_list
 {
@@ -66,7 +75,7 @@ int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s1, char const *set);
-char			**ft_split(char const *s, char c);
+char			**ft_split(char const *s, char *set);
 char			*ft_itoa(int n);
 void			ft_putchar(char c);
 void			ft_putstr(char const *s);
@@ -101,5 +110,21 @@ void			ft_lstdel_cnt(void *content);
 void			ft_lstadd_back(t_list **alst, t_list *new);
 void			ft_lstcut_next(t_list **lst);
 t_list			*ft_lstset(void *content, size_t len);
+int				gnl(char **l, char **s, int b_size, int fd);
+int				ft_len_atoi(char *str, int *len);
+char			*ft_fill_with(char this, size_t len);
+int				ft_scott_free(char **str);
+char			*ft_free_strjoin(char **s1, char **s2);
+char			*ft_pos_itoa(unsigned long long n);
+t_nlist			*ft_nlstnew(void* content, size_t index);
+int				ft_nlstadd_back(t_nlist **lst, t_nlist *new);
+int				ft_nlstadd_front(t_nlist **lst, t_nlist *new);
+int				ft_nlstdel_all(t_nlist **lst);
+int				ft_nlstdel_n_one(t_nlist **lst, size_t n);
+char			*ft_read_nlst_n(t_nlist *lst, size_t i);
+
+int				ft_free_strtab(char **tab);
+int				ft_print_strtab(char **tab);
+
 
 #endif
