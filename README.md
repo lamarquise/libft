@@ -3,7 +3,7 @@
 Makefile will need a rework eventually.
 
 
-In total there are: 90 Functions.
+In total there are: 92 Functions.
 
 The Libft is divided into two groups of functions, those that are extremely useful
 and found commonly throughout my projects, and those that are far less common.
@@ -277,7 +277,7 @@ str was printed.
 
 
 ## Other Functions
-52
+53
 
 #### Mem Functions
 8
@@ -474,7 +474,7 @@ Returns void.
 
 
 #### Is Check Functions
-8
+9
 
 ##### IsAlpha
 Checks if a char is an ascii letter.
@@ -483,6 +483,11 @@ Takes an int. Returns 1 if it is, 0 otherwise.
 ##### IsDigit
 Checks if a char is an ascii number.
 Takes an int. Returns 1 if it is, 0 otherwise.
+
+##### StrIsDigit
+Checks if all the char of a string are ascii digits.
+Takes a string str, iterates through it. Returns 0 if no str or not digits
+and 1 if all are digits.
 
 ##### IsAlNum
 Checks if a char is an ascii letter or number.

@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/19 16:14:05 by ericlazo         ###   ########.fr       */
+/*   Updated: 2020/09/19 17:18:27 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct	s_list
 }				t_list;
 
 /*
-**	In total there are 91 functions
+**	In total there are 92 functions
 */
 
 
@@ -107,7 +107,7 @@ void			ft_lstrev(t_list **lst);
 
 /*
 **
-**	Other Functions 52
+**	Other Functions 53
 **
 */
 
@@ -154,11 +154,12 @@ char			*ft_cstrjoin(char c, char **s2);
 char			*ft_strtrim(char const *s1, char const *set);
 
 /*
-**	Is Check Functions 8
+**	Is Check Functions 9
 */
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
+int				ft_str_isdigit(char *str);
 int				ft_isalnum(int c);
 int				ft_isspace(char c);
 int				ft_isprint(int c);

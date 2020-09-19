@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2020/09/19 17:03:06 by ericlazo         ###   ########.fr        #
+#    Updated: 2020/09/19 17:15:37 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,6 +110,7 @@ STRF	=	ft_strstr.c \
 DIR_ISCH	=	is_funcs/
 ISCH	=	ft_isalpha.c \
 			ft_isdigit.c \
+			ft_str_isdigit.c \
 			ft_isalnum.c \
 			ft_isascii.c \
 			ft_isspace.c \
