@@ -1,25 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_nstrlen.c                                       :+:      :+:    :+:   */
+/*   ft_error_msg.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 20:53:21 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/16 01:36:53 by ericlazo         ###   ########.fr       */
+/*   Created: 2020/09/19 16:11:03 by ericlazo          #+#    #+#             */
+/*   Updated: 2020/09/19 16:16:01 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
-int		ft_nstrlen(char *s, int ret)
+int		ft_error_msg(char *str, int ret)
 {
-	int		a;
-
-	a = 0;
-	if (!s)
+	if (!str)
 		return (ret);
-	while (s[a])
-		++a;
-	return (a);
+	ft_putstr(str);
+	return (ret);
 }

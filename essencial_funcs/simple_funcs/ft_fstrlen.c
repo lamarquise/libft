@@ -1,34 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fstrdup.c                                       :+:      :+:    :+:   */
+/*   ft_fstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 20:53:21 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/16 01:45:59 by ericlazo         ###   ########.fr       */
+/*   Updated: 2020/09/16 20:10:10 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-char	*ft_fstrdup(char *str)
+int		ft_fstrlen(const char *s)
 {
-	char	*ret;
 	int		a;
 
-	if (!str)
-		return (NULL);
 	a = 0;
-	while (str[a])
-		++a;
-	if (!(ret = ft_memalloc(sizeof(char) * (a + 1))))
-		return (NULL);
-	a = 0;
-	while (str[a])
+	if (s)
 	{
-		ret[a] = str[a];
-		++a;
+		while (s[a])
+			++a;
 	}
-	return (ret);
+	return (a);
 }

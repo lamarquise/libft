@@ -1,29 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fill_with.c                                     :+:      :+:    :+:   */
+/*   ft_nstrdup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/15 19:53:39 by ericlazo          #+#    #+#             */
-/*   Updated: 2020/09/15 19:57:05 by ericlazo         ###   ########.fr       */
+/*   Created: 2020/09/16 01:29:05 by ericlazo          #+#    #+#             */
+/*   Updated: 2020/09/19 04:46:12 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_fill_with(char this, size_t len)
+int		ft_nstrdup(char **cp, char *og)
 {
-	char    *ret;
-	size_t  i;
+	int		a;
 
-	if (!this || len < 1)
-		return (NULL);
-	if (!(ret = ft_memalloc(sizeof(char) * (len + 1))))
-		return (NULL);
-	i = 0;
-	while (i < len)
-		ret[i++] = this;
-	ret[i] = '\0';
-	return (ret);
+	if (!og)
+		return (1);
+	if (!cp)
+		return (0);
+	a = 0;
+	while (og[a])
+		++a;
+	if (!(*cp = ft_memalloc(sizeof(char) * (a + 1))))
+		return (0);
+	a = 0;
+	while (og[a])
+	{
+		(*cp)[a] = og[a];
+		++a;
+	}
+	return (1);
 }

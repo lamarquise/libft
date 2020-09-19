@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scott_free.c                                    :+:      :+:    :+:   */
+/*   ft_nstrlen.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 01:39:47 by ericlazo          #+#    #+#             */
-/*   Updated: 2020/09/16 01:43:36 by ericlazo         ###   ########.fr       */
+/*   Created: 2020/03/02 20:53:21 by erlazo            #+#    #+#             */
+/*   Updated: 2020/09/16 20:11:09 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "printf.h"
 
-long	ft_scott_free(char **str, int ret)
+int		ft_nstrlen(char *s, int ret)
 {
-	if (str && *str)
-	{
-		ft_bzero(*str, ft_fstrlen(*str));
-		free(*str);
-		*str = NULL;
-	}
-	return (ret);
+	int		a;
+
+	a = 0;
+	if (!s)
+		return (ret);
+	while (s[a])
+		++a;
+	return (a);
 }
