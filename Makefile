@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2020/09/19 17:15:37 by ericlazo         ###   ########.fr        #
+#    Updated: 2020/09/19 18:27:58 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra
 
 #Essencial Functions
-DIR_ESS	=	./essencial_functions/
+DIR_ESS	=	./essencial_funcs/
 
 DIR_COMP	=	complex_funcs/
 COMP	=	ft_strjoin.c \
@@ -70,7 +70,7 @@ TLST	=	ft_lstnew.c \
 			ft_lstrev.c \
 
 #Other Functions
-DIR_OTH	=	./other_functions/
+DIR_OTH	=	./other_funcs/
 
 DIR_MEMF	=	mem_funcs/
 MEMF	=	ft_calloc.c \
@@ -186,6 +186,7 @@ ESS_OBJ		=	$(COMP:.c=.o) \
 OTH_OBJ		=	$(MEMF:.c=.o) \
 				$(STRF:.c=.o) \
 				$(PUTF:.c=.o) \
+				$(ISCH:.c=.o) \
 				$(NLST:.c=.o) \
 
 ESS_OBJS	=	$(addprefix $(DIR_OBJ),$(ESS_OBJ))
