@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/19 17:35:37 by ericlazo         ###   ########.fr       */
+/*   Updated: 2020/09/23 15:08:58 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int				ft_findchar(char *str, char c);
 int				ft_strcmp(const char *s1, const char *s2);
 void			ft_putstr(char const *s);
 void			ft_putnbr(int n);
-int				ft_error_msg(char *str, int ret);
+long			ft_error_msg(char *str, int ret);
 
 /*
 **	List Functions 13
