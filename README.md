@@ -1,5 +1,11 @@
 # Design Docs for the Libft
 
+
+Update, sepreate into 2 categories, the funcs i made, complex med and simple
+and the regular ones...
+
+
+
 Makefile will need a rework eventually.
 
 
