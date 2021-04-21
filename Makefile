@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/21 23:13:03 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/04/21 23:48:12 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -229,7 +229,10 @@ FULL	=	hi
 
 	# may want to try with $(ALL_SRCS:...) as well...
 DIR_OBJ	=	./objs/
-OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+OBJS		=	$(ALL_SRCS:.c=.o)
 
 all: $(NAME)
 
@@ -240,7 +243,8 @@ $(NAME): $(OBJS)
 
 # do i actually only need to say if the dir where incs are kept needs to looked at..
 #$(DIR_OBJ)%.o: $(FULL_SRCS)%.c $(FULL_INCS)
-$(DIR_OBJ)%.o: $(ALL_SRCS)%.c
+#$(DIR_OBJ)%.o: $(ALL_SRCS)%.c
+$(DIR_OBJ)%.o: $(FULL_SRCS)%.c
 	mkdir -p $(DIR_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
