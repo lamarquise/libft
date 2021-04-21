@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/22 00:04:58 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/04/22 00:08:29 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -202,17 +202,17 @@ DIR_OBJ	=	./objs/
 #OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
 #OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
 
-OBJS		=	$(ATOI_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(IS_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(PUT_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(STR_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(STRM_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(MEMP_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(MEMM_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(LST_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(NLIST_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(TAB_FUNCS:.c=$(DIR_OBJ)%.o) \
-				$(SIMP_FUNCS:.c=$(DIR_OBJ)%.o) \
+OBJS		=	$(ATOI_FUNCS:$(DIR_ATOI)%.c=$(DIR_OBJ)%.o) \
+				$(IS_FUNCS:$(DIR_IS)%.c=$(DIR_OBJ)%.o) \
+				$(PUT_FUNCS:$(DIR_PUT)%.c=$(DIR_OBJ)%.o) \
+				$(STR_FUNCS:$(DIR_STR)%.c=$(DIR_OBJ)%.o) \
+				$(STRM_FUNCS:$(DIR_STRM)%.c=$(DIR_OBJ)%.o) \
+				$(MEMP_FUNCS:$(DIR_MEMP)%.c=$(DIR_OBJ)%.o) \
+				$(MEMM_FUNCS:$(DIR_MEMM)%.c=$(DIR_OBJ)%.o) \
+				$(LST_FUNCS:$(DIR_LST)%.c=$(DIR_OBJ)%.o) \
+				$(NLIST_FUNCS:$(DIR_NLST)%.c=$(DIR_OBJ)%.o) \
+				$(TAB_FUNCS:$(DIR_TAB)%.c=$(DIR_OBJ)%.o) \
+				$(SIMP_FUNCS:$(DIR_SIMP)%.c=$(DIR_OBJ)%.o) \
 
 	# will need a better include bit
 
