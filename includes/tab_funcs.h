@@ -1,29 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_strtab.c                                  :+:      :+:    :+:   */
+/*   tab_funcs.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 17:23:18 by ericlazo          #+#    #+#             */
-/*   Updated: 2020/09/16 17:25:24 by ericlazo         ###   ########.fr       */
+/*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
+/*   Updated: 2020/10/07 23:28:29 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef TAB_FUNCS_H
+# define TAB_FUNCS_H
 
-int		ft_print_strtab(char **tab)
-{
-	int		a;
+/*
+**	Tab Functions 2
+*/
 
-	if (!tab)
-		return (0);
-	a = 0;
-	while (tab[a])
-	{
-		write(1, tab[a], ft_fstrlen(tab[a]));
-		write(1, "\n", 1);
-		++a;
-	}
-	return (1);
-}
+int				ft_free_strtab(char **tab);
+int				ft_print_strtab(char **tab);
+
+#endif

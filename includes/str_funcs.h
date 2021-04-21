@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fstrlen.c                                       :+:      :+:    :+:   */
+/*   str_funcs.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 20:53:21 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/16 20:10:10 by ericlazo         ###   ########.fr       */
+/*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
+/*   Updated: 2020/10/07 23:28:29 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#ifndef STR_FUNCS_H
+# define STR_FUNCS_H
 
-int		ft_fstrlen(const char *s)
-{
-	int		a;
+/*
+**	Str Functions 6
+*/
 
-	a = 0;
-	if (s)
-	{
-		while (s[a])
-			++a;
-	}
-	return (a);
-}
+int				ft_nstrdup(char **cp, char *og);
+char			*ft_strdup(const char *s1);
+int				ft_nstrlen(char *s, int ret);
+size_t			ft_strlen(const char *s);
+int				ft_strcmp(const char *s1, const char *s2);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+
+
+#endif

@@ -1,34 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_fstrdup.c                                       :+:      :+:    :+:   */
+/*   simple_funcs.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/02 20:53:21 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/19 04:45:51 by ericlazo         ###   ########.fr       */
+/*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
+/*   Updated: 2020/10/07 23:28:29 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef SIMPLE_FUNCS_H
+# define SIMPLE_FUNCS_H
 
-char	*ft_fstrdup(char *str)
-{
-	char	*ret;
-	int		a;
+/*
+**	Simple Functions 2
+*/
 
-	if (!str)
-		return (NULL);
-	a = 0;
-	while (str[a])
-		++a;
-	if (!(ret = ft_memalloc(sizeof(char) * (a + 1))))
-		return (NULL);
-	a = 0;
-	while (str[a])
-	{
-		ret[a] = str[a];
-		++a;
-	}
-	return (ret);
-}
+int				ft_findchar(char *str, char c);
+long			ft_error_msg(char *str, int ret);
+
+#endif

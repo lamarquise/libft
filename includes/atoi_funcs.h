@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_scott_free.c                                    :+:      :+:    :+:   */
+/*   atoi_funcs.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/09/16 01:39:47 by ericlazo          #+#    #+#             */
-/*   Updated: 2020/09/19 04:46:55 by ericlazo         ###   ########.fr       */
+/*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
+/*   Updated: 2021/04/21 15:52:05 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef ATOI_FUNCS_H
+# define ATOI_FUNCS_H
 
-long	ft_scott_free(char **str, int ret)
-{
-	if (str && *str)
-	{
-		ft_bzero(*str, ft_fstrlen(*str));
-		free(*str);
-		*str = NULL;
-	}
-	return (ret);
-}
+/*
+**	Atoi Functions 4
+*/
+
+int				ft_atoi(const char *str);
+int				ft_latoi(char *str, long *num);
+char			*ft_itoa(int n);
+char			*ft_pos_itoa(unsigned long long n);
+
+#endif
