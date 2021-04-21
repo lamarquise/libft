@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/21 23:48:12 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/04/22 00:04:58 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -196,6 +196,24 @@ DIR_OBJ		=	./obj/
 #OTH_OBJS	=	$(addprefix $(DIR_OBJ),$(OTH_OBJ))
 
 
+	# may want to try with $(ALL_SRCS:...) as well...
+DIR_OBJ	=	./objs/
+#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
+
+OBJS		=	$(ATOI_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(IS_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(PUT_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(STR_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(STRM_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(MEMP_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(MEMM_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(LST_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(NLIST_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(TAB_FUNCS:.c=$(DIR_OBJ)%.o) \
+				$(SIMP_FUNCS:.c=$(DIR_OBJ)%.o) \
+
 	# will need a better include bit
 
 #INC		=	$(NAME:.a=.h)
@@ -226,13 +244,6 @@ CFLAGS	=	-Wall -Werror -Wextra -I$(DIR_INC)
 FULL	=	hi
 
 
-
-	# may want to try with $(ALL_SRCS:...) as well...
-DIR_OBJ	=	./objs/
-#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
-#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
-#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
-OBJS		=	$(ALL_SRCS:.c=.o)
 
 all: $(NAME)
 
