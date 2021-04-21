@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/22 00:08:29 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/04/22 01:04:07 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -132,7 +132,6 @@ NLST_FUNCS	=	ft_nlstnew.c \
 				ft_nlstdel_n_one.c \
 				ft_read_nlst_n.c \
 
-
 	# this is all the files with their paths attached
 FULL_SRCS	=	$(addprefix $(DIR_ATOI), $(ATOI_FUNCS)) \
 				$(addprefix $(DIR_IS), $(IS_FUNCS)) \
@@ -153,73 +152,28 @@ ALL_SRCS	=	$(ATOI_FUNCS) $(IS_FUNCS) $(PUT_FUNCS) $(MEMP_FUNCS) $(MEMM_FUNCS) \
 				$(NLST_FUNCS)
 
 
-#COMP_SRC	=	$(addprefix $(DIR_COMP),$(COMP))
-#MEDI_SRC	=	$(addprefix $(DIR_MEDI),$(MEDI))
-#SIMP_SRC	=	$(addprefix $(DIR_SIMP),$(SIMP))
-#TLST_SRC	=	$(addprefix $(DIR_TLST),$(TLST))
-
-#LLST_SRC	=	$(addprefix $(DIR_LLST),$(TLST_SRC))
-
-#ESS_SRC		=	$(addprefix $(DIR_ESS),$(COMP_SRC)) \
-				$(addprefix $(DIR_ESS),$(MEDI_SRC)) \
-				$(addprefix $(DIR_ESS),$(SIMP_SRC)) \
-				$(addprefix $(DIR_ESS),$(LLST_SRC)) \
-
-#MEMF_SRC	=	$(addprefix $(DIR_MEMF),$(MEMF))
-#STRF_SRC	=	$(addprefix $(DIR_STRF),$(STRF))
-#PUTF_SRC	=	$(addprefix $(DIR_PUTF),$(PUTF))
-#ISCH_SRC	=	$(addprefix $(DIR_ISCH),$(ISCH))
-
-#NLST_SRC	=	$(addprefix $(DIR_NLST),$(NLST))
-
-#OTH_SRC		=	$(addprefix $(DIR_OTH),$(MEMF_SRC)) \
-				$(addprefix $(DIR_OTH),$(STRF_SRC)) \
-				$(addprefix $(DIR_OTH),$(PUTF_SRC)) \
-				$(addprefix $(DIR_OTH),$(ISCH_SRC)) \
-				$(addprefix $(DIR_OTH),$(NLST_SRC)) \
-
-
-DIR_OBJ		=	./obj/
-#ESS_OBJ		=	$(COMP:.c=.o) \
-#				$(MEDI:.c=.o) \
-#				$(SIMP:.c=.o) \
-#				$(TLST:.c=.o) \
-				
-
-#OTH_OBJ		=	$(MEMF:.c=.o) \
-#				$(STRF:.c=.o) \
-#				$(PUTF:.c=.o) \
-#				$(ISCH:.c=.o) \
-#				$(NLST:.c=.o) \
-
-#ESS_OBJS	=	$(addprefix $(DIR_OBJ),$(ESS_OBJ))
-#OTH_OBJS	=	$(addprefix $(DIR_OBJ),$(OTH_OBJ))
-
-
 	# may want to try with $(ALL_SRCS:...) as well...
 DIR_OBJ	=	./objs/
 #OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
-#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
-#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
 
-OBJS		=	$(ATOI_FUNCS:$(DIR_ATOI)%.c=$(DIR_OBJ)%.o) \
-				$(IS_FUNCS:$(DIR_IS)%.c=$(DIR_OBJ)%.o) \
-				$(PUT_FUNCS:$(DIR_PUT)%.c=$(DIR_OBJ)%.o) \
-				$(STR_FUNCS:$(DIR_STR)%.c=$(DIR_OBJ)%.o) \
-				$(STRM_FUNCS:$(DIR_STRM)%.c=$(DIR_OBJ)%.o) \
-				$(MEMP_FUNCS:$(DIR_MEMP)%.c=$(DIR_OBJ)%.o) \
-				$(MEMM_FUNCS:$(DIR_MEMM)%.c=$(DIR_OBJ)%.o) \
-				$(LST_FUNCS:$(DIR_LST)%.c=$(DIR_OBJ)%.o) \
-				$(NLIST_FUNCS:$(DIR_NLST)%.c=$(DIR_OBJ)%.o) \
-				$(TAB_FUNCS:$(DIR_TAB)%.c=$(DIR_OBJ)%.o) \
-				$(SIMP_FUNCS:$(DIR_SIMP)%.c=$(DIR_OBJ)%.o) \
+OBJ			=	$(ATOI_FUNCS:.c=.o) \
+				$(IS_FUNCS:.c=.o) \
+				$(PUT_FUNCS:.c=.o) \
+				$(STR_FUNCS:.c=.o) \
+				$(STRM_FUNCS:.c=.o) \
+				$(MEMP_FUNCS:.c=.o) \
+				$(MEMM_FUNCS:.c=.o) \
+				$(LST_FUNCS:.c=.o) \
+				$(NLIST_FUNCS:.c=.o) \
+				$(TAB_FUNCS:.c=.o) \
+				$(SIMP_FUNCS:.c=.o) \
+
+OBJS		=	$(addprefix $(DIR_OBJ),$(OBJ))
+
 
 	# will need a better include bit
 
-#INC		=	$(NAME:.a=.h)
 DIR_INC	=	includes/
-#INCS	=	$(addprefix $(DIR_INC),$(INC))
-
 INCS	=	libft.h \
 			atoi_funcs.h \
 			is_funcs.h \
@@ -233,85 +187,24 @@ INCS	=	libft.h \
 			str_funcs_more.h \
 			tab_funcs.h \
 
-FULL_INCS	= $(addprefix $(DIR_INC), $(INCS))
-
+#INCS	=	$(addprefix $(DIR_INC),$(INC))
 
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra -I$(DIR_INC)
 
-
-
-FULL	=	hi
-
-
-
 all: $(NAME)
+
+#$(OBJS): | $(DIR_OBJ)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 	printf "$(_GREEN)\r\33[2K\rFull $(NAME) created  😎\n$(_END)"
 
-# do i actually only need to say if the dir where incs are kept needs to looked at..
-#$(DIR_OBJ)%.o: $(FULL_SRCS)%.c $(FULL_INCS)
-#$(DIR_OBJ)%.o: $(ALL_SRCS)%.c
-$(DIR_OBJ)%.o: $(FULL_SRCS)%.c
+$(DIR_OBJ)%.o: $(FULL_SRCS) | $(DIR_INC)
 	mkdir -p $(DIR_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-
-
-
-#$(NAME): $(ESS_OBJS) $(OTH_OBJS) $(INCS)
-#	ar rc $(NAME) $(ESS_OBJS) $(OTH_OBJS)
-#	ranlib $(NAME)
-#	printf "$(_GREEN)\r\33[2K\rFull $(NAME) created  😎\n$(_END)"
-
-#$(DIR_OBJ)%.o: ./essencial_funcs/$(DIR_COMP)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./essencial_funcs/$(DIR_MEDI)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./essencial_funcs/$(DIR_SIMP)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./essencial_funcs/linked_list_funcs/$(DIR_TLST)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./other_funcs/$(DIR_MEMF)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./other_funcs/$(DIR_STRF)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./other_funcs/$(DIR_PUTF)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./other_funcs/$(DIR_ISCH)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
-
-#$(DIR_OBJ)%.o: ./other_funcs/$(DIR_NLST)%.c $(INCS)
-#	mkdir -p $(DIR_OBJ)
-#	$(CC) $(CFLAGS) -c $< -o $@ -I $(DIR_INC)
-#	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
 
 clean:
 	rm -rf $(DIR_OBJ)
@@ -323,16 +216,6 @@ fclean: clean
 
 re:			fclean all
 
-#ess: $(NAME)
-
-# Try using ifs to make so second one with same name doesn't relink...
-#$(NAME2): $(ESS_OBJS) $(OTH_OBJS) $(INCS)
-#	ar rc $(NAME2) $(ESS_OBJS) $(OTH_OBJS)
-#	ranlib $(NAME2)
-#	I hate the touch full thing but use it for now...
-#	touch full
-#	printf "$(_GREEN)\r\33[2K\rFull $(NAME2) created  😎\n$(_END)"
-	
 .PHONY: all clean fclean re
 
 .SILENT:
