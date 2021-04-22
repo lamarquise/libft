@@ -1,6 +1,17 @@
 # Design Docs for the Libft
 
 
+This readme is no longer up to date, i changed the organization of my files
+it's much better, and more intuitive, just poke around, you'll find what you
+are lookng for...
+Also, the Makefile is still done in the way that annoys me, with a rule for each
+'.c' folder... Couldn't get it to work the way i wanted it to... There are a bunch
+of commented out examples of things that didn't work...
+
+Oh and i could add the pflist functions in their own folder in the libft, but either
+way, they're in here now...
+
+
 Update, sepreate into 2 categories, the funcs i made, complex med and simple
 and the regular ones...
 

@@ -6,14 +6,11 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/22 01:04:07 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/04/22 04:24:05 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-#maybe not do linked list folder with t list in it ? for now ?
-# For now only Full libft, eventually have so can do only essencial
-
-NAME	=	libft.a
+NAME		=	libft.a
 
 DIR_SRCS	=	./srcs/
 
@@ -132,6 +129,22 @@ NLST_FUNCS	=	ft_nlstnew.c \
 				ft_nlstdel_n_one.c \
 				ft_read_nlst_n.c \
 
+DIR_PRINTF	=	$(DIR_SRCS)printf/
+FT_PRINTF	=	ft_printf.c \
+				parsing_main.c \
+				parse_spec.c \
+				parse_flags.c \
+				handle_int.c \
+				handle_str.c \
+				handle_modulo.c \
+				handle_pointer.c \
+				gen_arg_str.c \
+				pfelem_list.c \
+				base_conversion.c \
+				minor_extra.c \
+				display.c \
+
+	# currently unused...
 	# this is all the files with their paths attached
 FULL_SRCS	=	$(addprefix $(DIR_ATOI), $(ATOI_FUNCS)) \
 				$(addprefix $(DIR_IS), $(IS_FUNCS)) \
@@ -143,19 +156,22 @@ FULL_SRCS	=	$(addprefix $(DIR_ATOI), $(ATOI_FUNCS)) \
 				$(addprefix $(DIR_TAB), $(TAB_FUNCS)) \
 				$(addprefix $(DIR_SIMP), $(SIMP_FUNCS)) \
 				$(addprefix $(DIR_LST), $(LST_FUNCS)) \
-				$(addprefix $(DIR_NLST), $(NLST_FUNCS))
+				$(addprefix $(DIR_NLST), $(NLST_FUNCS)) \
+				$(addprefix $(DIR_PRINTF), $(FT_PRINTF)) \
+
+	# also unused...
+ALL_DIRS	=	$(DIR_ATOI)%.c $(DIR_IS)%.c $(DIR_PUT)%.c $(DIR_MEMP)%.c \
+				$(DIR_MEMM)%.c $(DIR_STR)%.c $(DIR_STRM)%.c $(DIR_TAB)%.c \
+				$(DIR_SIMP)%.c $(DIR_LST)%.c $(DIR_NLST)%.c
 
 
+	# also also unused...
 	# this is just the file names, all of them
 ALL_SRCS	=	$(ATOI_FUNCS) $(IS_FUNCS) $(PUT_FUNCS) $(MEMP_FUNCS) $(MEMM_FUNCS) \
 				$(STR_FUNCS) $(STRM_FUNCS) $(TAB_FUNCS) $(SIMP_FUNCS) $(LST_FUNCS) \
-				$(NLST_FUNCS)
+				$(NLST_FUNCS) $(FT_PRINTF)
 
-
-	# may want to try with $(ALL_SRCS:...) as well...
 DIR_OBJ	=	./objs/
-#OBJS		=	$(FULL_SRCS:%.c=$(DIR_OBSJ)%.o)
-
 OBJ			=	$(ATOI_FUNCS:.c=.o) \
 				$(IS_FUNCS:.c=.o) \
 				$(PUT_FUNCS:.c=.o) \
@@ -167,13 +183,16 @@ OBJ			=	$(ATOI_FUNCS:.c=.o) \
 				$(NLIST_FUNCS:.c=.o) \
 				$(TAB_FUNCS:.c=.o) \
 				$(SIMP_FUNCS:.c=.o) \
+				$(FT_PRINTF:.c=.o) \
+
+# could do the if thing for printf here...
+# i think i'll just keep it in... for now anyway
+
 
 OBJS		=	$(addprefix $(DIR_OBJ),$(OBJ))
 
-
-	# will need a better include bit
-
 DIR_INC	=	includes/
+	# also also also unused...
 INCS	=	libft.h \
 			atoi_funcs.h \
 			is_funcs.h \
@@ -186,6 +205,7 @@ INCS	=	libft.h \
 			str_funcs.h \
 			str_funcs_more.h \
 			tab_funcs.h \
+			printf.h \
 
 #INCS	=	$(addprefix $(DIR_INC),$(INC))
 
@@ -201,7 +221,104 @@ $(NAME): $(OBJS)
 	ranlib $(NAME)
 	printf "$(_GREEN)\r\33[2K\rFull $(NAME) created  😎\n$(_END)"
 
-$(DIR_OBJ)%.o: $(FULL_SRCS) | $(DIR_INC)
+
+	# I tried so many things, non of them work...
+# cannot seem to get a Makefile that compiles '.o's into a single 'objs/' folder
+# from '.c's that are in many different folder... This is very frustrating...
+ 
+
+	# full_srcs doesn't work.. you need the %.c...
+#$(DIR_OBJ)%.o: $(FULL_SRCS) | $(DIR_INC)
+
+	# i really hoped this would work but it does not, it compiles all of
+# them from ft_atoi (which is first) not sure if they're all different with
+# the same name or all the same, but in any case, check the '.o' files, 
+# they all end up with _ft_atoi, it works but none of the rest of them do
+
+#$(DIR_OBJ)%.o: $(FULL_SRCS)
+#$(DIR_OBJ)%.o: $(ALL_DIRS)%.c
+#$(DIR_OBJ)%.o: $(wildcard $(ALL_DIRS)/*.c)
+#$(DIR_OBJ)%.o: $(wildcard $(ALL_DIRS)/%.c)
+#$(DIR_OBJ)%.o: $(wildcard $(ALL_DIRS))%.c
+	# works but not what i want, i would need one rule for each folder...
+#$(DIR_OBJ)%.o: $(DIR_ATOI)%.c
+
+#$(DIR_OBJ)%.o: $(foreach dir,$(ALL_DIRS), $(dir)%.c)
+	#sadly does not work... i need the path...
+#$(DIR_OBJ)%.o: %.c
+#$(DIR_OBJ)%.o: $(foreach dir,$(ALL_DIRS), $(dir))%.c
+#$(DIR_OBJ)%.o: $(DIR_ATOI)%.c
+
+#$(DIR_OBJ)%.o: $(foreach file,$(FULL_SRCS), $(file))
+#$(DIR_OBJ)%.o: $(foreach dir,$(ALL_DIRS), $(dir))
+#$(DIR_OBJ)%.o: $(ALL_DIRS)
+
+#print: $(foreach dir,$(ALL_DIRS), $(dir))%.c
+#	printf "$^"
+
+#print2: $(DIR_ATOI)%.c
+#	printf "$^"
+
+
+
+
+
+$(DIR_OBJ)%.o: $(DIR_ATOI)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_IS)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_PUT)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_STR)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_STRM)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_MEMP)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_MEMM)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_SIMP)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_TAB)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_LST)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_NLST)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_PRINTF)%.c
 	mkdir -p $(DIR_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
