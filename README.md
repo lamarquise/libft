@@ -6,10 +6,16 @@ it's much better, and more intuitive, just poke around, you'll find what you
 are lookng for...
 Also, the Makefile is still done in the way that annoys me, with a rule for each
 '.c' folder... Couldn't get it to work the way i wanted it to... There are a bunch
-of commented out examples of things that didn't work...
+of commented out examples of things that didn't work... I suppose one option
+I could try would be creating all the '.o's in next to the '.c's and having
+a rule that moves them all to an objs/ folder once they all exist, but that
+seems like a huge pain, and i'm guessing i might run into the exact same
+problem...
 
 Oh and i could add the pflist functions in their own folder in the libft, but either
-way, they're in here now...
+way, they're in here now... They conntain the length of the string in each
+element of the list.
+
 
 
 Update, sepreate into 2 categories, the funcs i made, complex med and simple
