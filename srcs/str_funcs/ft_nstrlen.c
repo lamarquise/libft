@@ -6,11 +6,11 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/02 20:53:21 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/16 20:11:09 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/04/26 03:55:36 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "printf.h"
+#include "libft.h"
 
 int		ft_nstrlen(char *s, int ret)
 {

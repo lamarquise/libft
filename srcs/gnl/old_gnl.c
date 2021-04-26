@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/17 11:00:08 by erlazo            #+#    #+#             */
-/*   Updated: 2020/09/15 19:53:18 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/04/26 04:12:35 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int		gnl(char **l, char **s, int b_size, int fd)
 	{
 		if (!(*l = ft_substr(*s, 0, (size_t)i++))
 			|| (!(p = ft_substr(*s, i, ft_strlen(*s) - (size_t)i))))
-			return (-1);
+			return (-4);
 		free(*s);
 		*s = p;
 		return (1);
@@ -32,7 +32,7 @@ int		gnl(char **l, char **s, int b_size, int fd)
 	if ((i = read(fd, b, b_size)) < 0
 		|| (i > 0 && !(p = ft_strjoin(*s, b)))
 		|| (*s[0] && ++i == 1 && !(p = ft_strjoin(*s, "\n"))))
-		return (-1);
+		return (-5);
 	free(*s);
 	*s = p;
 	return ((i > 0) ? gnl(l, s, b_size, fd) : 0);

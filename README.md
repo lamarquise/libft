@@ -41,6 +41,16 @@ Consider adding a list of just the names of all the functions, one for both grou
 
 Any left in Cub3D ?
 
+### GNL
+Ended up taking the one i made for Cub3D and modifying it slightly again, but it's
+essencially the same thing, reason being, my regural strjoin and such functions that
+i have setup to be all purpose in the Libft are not precise enough for my versions of
+GNL, so i also have copies of those, but i discourage their use anywhere other
+than GNL, they're really specific and tricky to untangle.
+
+
+
+
 
 ## Essencial Functions
 39

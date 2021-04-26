@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/22 04:24:05 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/04/26 23:57:13 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,6 +129,10 @@ NLST_FUNCS	=	ft_nlstnew.c \
 				ft_nlstdel_n_one.c \
 				ft_read_nlst_n.c \
 
+DIR_GNL		=	$(DIR_SRCS)gnl/
+FT_GNL		=	gnl.c \
+				utils.c \
+
 DIR_PRINTF	=	$(DIR_SRCS)printf/
 FT_PRINTF	=	ft_printf.c \
 				parsing_main.c \
@@ -169,7 +173,7 @@ ALL_DIRS	=	$(DIR_ATOI)%.c $(DIR_IS)%.c $(DIR_PUT)%.c $(DIR_MEMP)%.c \
 	# this is just the file names, all of them
 ALL_SRCS	=	$(ATOI_FUNCS) $(IS_FUNCS) $(PUT_FUNCS) $(MEMP_FUNCS) $(MEMM_FUNCS) \
 				$(STR_FUNCS) $(STRM_FUNCS) $(TAB_FUNCS) $(SIMP_FUNCS) $(LST_FUNCS) \
-				$(NLST_FUNCS) $(FT_PRINTF)
+				$(NLST_FUNCS) $(FT_PRINTF) $(FT_GNL)
 
 DIR_OBJ	=	./objs/
 OBJ			=	$(ATOI_FUNCS:.c=.o) \
@@ -184,6 +188,7 @@ OBJ			=	$(ATOI_FUNCS:.c=.o) \
 				$(TAB_FUNCS:.c=.o) \
 				$(SIMP_FUNCS:.c=.o) \
 				$(FT_PRINTF:.c=.o) \
+				$(FT_GNL:.c=.o) \
 
 # could do the if thing for printf here...
 # i think i'll just keep it in... for now anyway
@@ -207,7 +212,7 @@ INCS	=	libft.h \
 			tab_funcs.h \
 			printf.h \
 
-#INCS	=	$(addprefix $(DIR_INC),$(INC))
+INCS_2	=	$(addprefix $(DIR_INC),$(INCS))
 
 CC		=	gcc
 CFLAGS	=	-Wall -Werror -Wextra -I$(DIR_INC)
@@ -216,7 +221,7 @@ all: $(NAME)
 
 #$(OBJS): | $(DIR_OBJ)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(INCS_2)
 	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
 	printf "$(_GREEN)\r\33[2K\rFull $(NAME) created  😎\n$(_END)"
@@ -314,6 +319,11 @@ $(DIR_OBJ)%.o: $(DIR_LST)%.c
 	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
 
 $(DIR_OBJ)%.o: $(DIR_NLST)%.c
+	mkdir -p $(DIR_OBJ)
+	$(CC) $(CFLAGS) -c $< -o $@
+	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"
+
+$(DIR_OBJ)%.o: $(DIR_GNL)%.c
 	mkdir -p $(DIR_OBJ)
 	$(CC) $(CFLAGS) -c $< -o $@
 	printf "$(_CYAN)\r\33[2K\rCompling $@$(_END)"

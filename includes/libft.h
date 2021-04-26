@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
-/*   Updated: 2021/04/22 01:56:58 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/04/26 20:56:55 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define LIBFT_H
 
 // might want these elsewhere? prolly not actually
+
+// a comment
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -37,5 +39,6 @@
 # include "str_funcs_more.h"
 # include "tab_funcs.h"
 # include "printf.h"
+# include "gnl.h"
 
 #endif
