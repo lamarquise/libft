@@ -6,7 +6,7 @@
 #    By: erlazo <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/09 13:59:02 by erlazo            #+#    #+#              #
-#    Updated: 2021/04/26 23:57:13 by ericlazo         ###   ########.fr        #
+#    Updated: 2021/08/09 19:31:19 by ericlazo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -184,7 +184,7 @@ OBJ			=	$(ATOI_FUNCS:.c=.o) \
 				$(MEMP_FUNCS:.c=.o) \
 				$(MEMM_FUNCS:.c=.o) \
 				$(LST_FUNCS:.c=.o) \
-				$(NLIST_FUNCS:.c=.o) \
+				$(NLST_FUNCS:.c=.o) \
 				$(TAB_FUNCS:.c=.o) \
 				$(SIMP_FUNCS:.c=.o) \
 				$(FT_PRINTF:.c=.o) \

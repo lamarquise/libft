@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/17 16:13:46 by erlazo            #+#    #+#             */
-/*   Updated: 2021/04/26 03:51:39 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:38:48 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 # define C_Z		0x10
 # define C_J		0x20
 
-typedef struct	s_param
+typedef struct s_param
 {
 	char		spec;
 	int			flag;
@@ -46,7 +46,7 @@ typedef struct	s_param
 	int			size;
 }				t_param;
 
-typedef struct	s_pfelem
+typedef struct s_pfelem
 {
 	char			*content;
 	int				size;

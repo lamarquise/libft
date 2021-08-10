@@ -6,7 +6,7 @@
 /*   By: erlazo <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:05:41 by erlazo            #+#    #+#             */
-/*   Updated: 2020/10/07 23:28:29 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/08/10 17:40:31 by ericlazo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 */
 
 char			*ft_strstr(const char *haystack, const char *needle);
-char			*ft_strnstr(const char *haystack,
+char			*ft_strnstr(const char *haystack, \
 				const char *needle, size_t len);
 char			*ft_strcpy(char *dst, const char *src);
 char			*ft_strncpy(char *dst, const char *src, size_t len);
