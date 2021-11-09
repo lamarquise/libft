@@ -6,12 +6,13 @@
 /*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/26 04:35:20 by ericlazo          #+#    #+#             */
-/*   Updated: 2021/04/26 19:16:13 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/11/09 17:30:09 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 	// leaving it libft.h for the read...
 #include "libft.h"
+//#include "gnl.h"
 
 int		ft_gnl(char **line, int fd)
 {

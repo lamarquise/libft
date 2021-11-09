@@ -6,11 +6,12 @@
 /*   By: ericlazo <erlazo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/28 17:31:33 by ericlazo          #+#    #+#             */
-/*   Updated: 2021/04/26 19:46:13 by ericlazo         ###   ########.fr       */
+/*   Updated: 2021/11/09 17:29:54 by erlazo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+//#include "gnl.h"
 
 size_t	ft_sstrlen(const char *s)
 {
